@@ -4,7 +4,9 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "supabase-login": "supabase login",
+    "supabase-types": "supabase gen types typescript --project-id symnaeeatsntzepelvhp > types/database.types.ts"
   },
   "dependencies": {
     "@mantine/core": "7.0.0-beta.5",
@@ -13,6 +15,8 @@
     "@remix-run/node": "^1.19.3",
     "@remix-run/react": "^1.19.3",
     "@remix-run/vercel": "^1.19.3",
+    "@supabase/auth-helpers-remix": "^0.2.1",
+    "@supabase/supabase-js": "^2.33.2",
     "@vercel/node": "^2.10.3",
     "isbot": "^3.6.8",
     "react": "^18.2.0",
@@ -30,6 +34,7 @@
     "postcss": "^8.4.29",
     "postcss-preset-mantine": "^1.7.0",
     "postcss-simple-vars": "^7.0.1",
+    "supabase": "^1.93.0",
     "typescript": "^5.0.4"
   },
   "engines": {
