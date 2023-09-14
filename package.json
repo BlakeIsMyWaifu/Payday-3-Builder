@@ -31,9 +31,11 @@
     "@types/react-dom": "^18.0.11",
     "@types/source-map-support": "^0.5.6",
     "eslint": "^8.38.0",
+    "eslint-config-prettier": "^9.0.0",
     "postcss": "^8.4.29",
     "postcss-preset-mantine": "^1.7.0",
     "postcss-simple-vars": "^7.0.1",
+    "prettier": "^3.0.3",
     "supabase": "^1.93.0",
     "typescript": "^5.0.4"
   },

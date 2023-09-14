@@ -5,20 +5,19 @@ import type { Database } from '~/types/database.types'
 import type { LoaderArgs } from '@remix-run/node'
 
 export const loader = async ({ request }: LoaderArgs) => {
-  const response = new Response()
-  const url = new URL(request.url)
-  const code = url.searchParams.get('code')
+	const response = new Response()
+	const url = new URL(request.url)
+	const code = url.searchParams.get('code')
 
-  if (code) {
-    const supabaseClient = createServerClient<Database>(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_ANON_KEY!,
-      { request, response }
-    )
-    await supabaseClient.auth.exchangeCodeForSession(code)
-  }
+	if (code) {
+		const supabaseClient = createServerClient<Database>(process.env.SUPABASE_URL!, process.env.SUPABASE_ANON_KEY!, {
+			request,
+			response
+		})
+		await supabaseClient.auth.exchangeCodeForSession(code)
+	}
 
-  return redirect('/', {
-    headers: response.headers,
-  })
+	return redirect('/', {
+		headers: response.headers
+	})
 }
