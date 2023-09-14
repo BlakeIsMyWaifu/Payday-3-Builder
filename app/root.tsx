@@ -1,5 +1,6 @@
 import '@mantine/core/styles.css'
 
+import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { json, type LinksFunction, type LoaderArgs } from '@remix-run/node'
 import {
@@ -12,10 +13,10 @@ import {
 	useLoaderData,
 	useRevalidator
 } from '@remix-run/react'
-import { MantineProvider, ColorSchemeScript } from '@mantine/core'
-import { useEffect, useState } from 'react'
 import { createBrowserClient, createServerClient } from '@supabase/auth-helpers-remix'
-import type { Database } from '~/types/database.types'
+import { useEffect, useState } from 'react'
+
+import { type Database } from '~/types/database.types'
 
 export const links: LinksFunction = () => [...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])]
 

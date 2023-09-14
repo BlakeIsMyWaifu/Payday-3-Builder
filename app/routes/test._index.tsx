@@ -1,10 +1,10 @@
 import { Container, Text } from '@mantine/core'
-import type { V2_MetaFunction, LoaderArgs } from '@remix-run/node'
-import { json } from '@remix-run/node'
+import { json, type LoaderArgs, type V2_MetaFunction } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { createServerClient } from '@supabase/auth-helpers-remix'
-import type { Database } from '~/types/database.types'
+
 import Login from '~/components/login'
+import { type Database } from '~/types/database.types'
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const response = new Response()

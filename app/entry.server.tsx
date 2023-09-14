@@ -1,7 +1,6 @@
 import { PassThrough } from 'node:stream'
 
-import type { AppLoadContext, EntryContext } from '@remix-run/node'
-import { Response } from '@remix-run/node'
+import { type AppLoadContext, type EntryContext, Response } from '@remix-run/node'
 import { RemixServer } from '@remix-run/react'
 import isbot from 'isbot'
 import { renderToPipeableStream } from 'react-dom/server'
@@ -13,7 +12,7 @@ export default function handleRequest(
 	responseStatusCode: number,
 	responseHeaders: Headers,
 	remixContext: EntryContext,
-	loadContext: AppLoadContext
+	_loadContext: AppLoadContext
 ) {
 	return isbot(request.headers.get('user-agent'))
 		? handleBotRequest(request, responseStatusCode, responseHeaders, remixContext)

@@ -1,6 +1,7 @@
 import { useOutletContext } from '@remix-run/react'
-import type { SupabaseClient } from '@supabase/supabase-js'
-import type { Database } from '~/types/database.types'
+import { type SupabaseClient } from '@supabase/supabase-js'
+
+import { type Database } from '~/types/database.types'
 
 export default function Login() {
 	const { supabase } = useOutletContext<{ supabase: SupabaseClient<Database> }>()
