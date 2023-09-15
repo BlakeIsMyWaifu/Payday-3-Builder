@@ -2,21 +2,22 @@ import '@mantine/core/styles.css'
 
 import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { cssBundleHref } from '@remix-run/css-bundle'
-import { json, type LinksFunction, type LoaderArgs } from '@remix-run/node'
+import { json, type LinksFunction, type LoaderFunctionArgs } from '@remix-run/node'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
+import { type Session } from '@supabase/supabase-js'
 
 import useSupabase, { supabaseLoader } from './hooks/useSupabase'
 
 export const links: LinksFunction = () => [...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])]
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const { env, session, response } = await supabaseLoader(request)
 	return json({ env, session }, { headers: response.headers })
 }
 
 export default function App() {
 	const { env, session } = useLoaderData<typeof loader>()
-	const { supabase } = useSupabase({ env, session })
+	const { supabase } = useSupabase({ env, session: session as Session | null })
 
 	return (
 		<html lang='en'>

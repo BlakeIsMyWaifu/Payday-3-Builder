@@ -11,26 +11,24 @@
   "dependencies": {
     "@mantine/core": "7.0.0-beta.5",
     "@mantine/hooks": "7.0.0-beta.5",
-    "@remix-run/css-bundle": "^1.19.3",
-    "@remix-run/node": "^1.19.3",
-    "@remix-run/react": "^1.19.3",
-    "@remix-run/vercel": "^1.19.3",
+    "@remix-run/css-bundle": "^2.0.0",
+    "@remix-run/node": "^2.0.0",
+    "@remix-run/react": "^2.0.0",
     "@supabase/auth-helpers-remix": "^0.2.1",
     "@supabase/supabase-js": "^2.33.2",
-    "@vercel/node": "^2.10.3",
-    "isbot": "^3.6.8",
+    "isbot": "^3.6.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.19.3",
-    "@remix-run/eslint-config": "^1.19.3",
-    "@remix-run/serve": "^1.19.3",
-    "@types/react": "^18.0.35",
-    "@types/react-dom": "^18.0.11",
-    "@types/source-map-support": "^0.5.6",
-    "eslint": "^8.38.0",
+    "@remix-run/dev": "^2.0.0",
+    "@remix-run/eslint-config": "^2.0.0",
+    "@remix-run/serve": "^2.0.0",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/source-map-support": "^0.5.7",
+    "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "postcss": "^8.4.29",
@@ -38,7 +36,7 @@
     "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.0.3",
     "supabase": "^1.93.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": ">=14.0.0"

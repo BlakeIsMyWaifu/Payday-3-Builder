@@ -1,4 +1,4 @@
-import { type LoaderArgs } from '@remix-run/node'
+import { type LoaderFunctionArgs } from '@remix-run/node'
 import { useRevalidator } from '@remix-run/react'
 import { createBrowserClient, createServerClient, type Session } from '@supabase/auth-helpers-remix'
 import { useEffect, useState } from 'react'
@@ -13,7 +13,7 @@ interface env {
 /**
  * Use ONLY in the root loader
  */
-export const supabaseLoader = async (request: LoaderArgs['request']) => {
+export const supabaseLoader = async (request: LoaderFunctionArgs['request']) => {
 	const env: env = {
 		SUPABASE_URL: process.env.SUPABASE_URL!,
 		SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY!
