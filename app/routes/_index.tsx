@@ -1,4 +1,3 @@
-import { Container, Text, Title } from '@mantine/core'
 import { type MetaFunction } from '@remix-run/node'
 
 export const meta: MetaFunction = () => {
@@ -7,9 +6,9 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
 	return (
-		<Container>
-			<Title>Welcome to Remix</Title>
-			<Text>Mantine</Text>
-		</Container>
+		<>
+			<h1>Welcome to Remix</h1>
+			<p>Mantine</p>
+		</>
 	)
 }

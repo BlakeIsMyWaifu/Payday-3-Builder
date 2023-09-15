@@ -6,7 +6,9 @@ import { json, type LinksFunction, type LoaderFunctionArgs } from '@remix-run/no
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
 import { type Session } from '@supabase/supabase-js'
 
+import AppContainer from './components/AppContainer'
 import useSupabase, { supabaseLoader } from './hooks/useSupabase'
+import { theme } from './utils/mantineTheme'
 
 export const links: LinksFunction = () => [...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])]
 
@@ -29,8 +31,10 @@ export default function App() {
 				<ColorSchemeScript />
 			</head>
 			<body>
-				<MantineProvider>
-					<Outlet context={{ supabase }} />
+				<MantineProvider theme={theme} defaultColorScheme='dark'>
+					<AppContainer>
+						<Outlet context={{ supabase }} />
+					</AppContainer>
 					<ScrollRestoration />
 					<Scripts />
 					<LiveReload />

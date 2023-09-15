@@ -7,5 +7,5 @@ module.exports = {
   serverMinify: false,
   serverModuleFormat: "cjs",
   serverPlatform: "node",
-  postcss: false
+  postcss: true
 };
