@@ -4,22 +4,30 @@ import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { json, type LinksFunction, type LoaderFunctionArgs } from '@remix-run/node'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
-import { type Session } from '@supabase/supabase-js'
+import { type Session, type SupabaseClient } from '@supabase/supabase-js'
 
 import AppContainer from './components/AppContainer'
 import useSupabase, { supabaseLoader } from './hooks/useSupabase'
+import isProduction from './utils/isProduction'
 import { theme } from './utils/mantineTheme'
 
 export const links: LinksFunction = () => [...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])]
 
+interface RootOutlet {
+	supabase: SupabaseClient
+	session: Session | null
+}
+
 export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const { env, session, response } = await supabaseLoader(request)
-	return json({ env, session }, { headers: response.headers })
+	const baseUrl = `http://${isProduction() ? process.env.VERCEL_BRANCH_URL : 'localhost:3000'}`
+	return json({ env, session, baseUrl }, { headers: response.headers })
 }
 
 export default function App() {
-	const { env, session } = useLoaderData<typeof loader>()
-	const { supabase } = useSupabase({ env, session: session as Session | null })
+	const { env, session: sessionJsonify, baseUrl } = useLoaderData<typeof loader>()
+	const session = sessionJsonify as Session | null
+	const { supabase } = useSupabase({ env, session })
 
 	return (
 		<html lang='en'>
@@ -31,9 +39,9 @@ export default function App() {
 				<ColorSchemeScript />
 			</head>
 			<body>
-				<MantineProvider theme={theme} defaultColorScheme='dark'>
-					<AppContainer>
-						<Outlet context={{ supabase }} />
+				<MantineProvider theme={theme} defaultColorScheme='auto'>
+					<AppContainer supabase={supabase} baseUrl={baseUrl}>
+						<Outlet context={{ supabase, session } satisfies RootOutlet} />
 					</AppContainer>
 					<ScrollRestoration />
 					<Scripts />
