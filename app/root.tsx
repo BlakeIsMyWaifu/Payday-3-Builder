@@ -5,6 +5,7 @@ import { cssBundleHref } from '@remix-run/css-bundle'
 import { json, type LinksFunction, type LoaderFunctionArgs } from '@remix-run/node'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
 import { type Session, type SupabaseClient } from '@supabase/supabase-js'
+import { type ReactNode } from 'react'
 
 import AppContainer from './components/AppContainer'
 import useSupabase, { supabaseLoader } from './hooks/useSupabase'
@@ -30,6 +31,22 @@ export default function App() {
 	const { supabase } = useSupabase({ env, session })
 
 	return (
+		<Document>
+			<MantineProvider theme={theme} defaultColorScheme='auto'>
+				<AppContainer supabase={supabase} baseUrl={baseUrl}>
+					<Outlet context={{ supabase, session } satisfies RootOutlet} />
+				</AppContainer>
+			</MantineProvider>
+		</Document>
+	)
+}
+
+interface DocumentProps {
+	children: ReactNode
+}
+
+export function Document({ children }: DocumentProps) {
+	return (
 		<html lang='en'>
 			<head>
 				<meta charSet='utf-8' />
@@ -39,14 +56,10 @@ export default function App() {
 				<ColorSchemeScript />
 			</head>
 			<body>
-				<MantineProvider theme={theme} defaultColorScheme='auto'>
-					<AppContainer supabase={supabase} baseUrl={baseUrl}>
-						<Outlet context={{ supabase, session } satisfies RootOutlet} />
-					</AppContainer>
-					<ScrollRestoration />
-					<Scripts />
-					<LiveReload />
-				</MantineProvider>
+				{children}
+				<ScrollRestoration />
+				<Scripts />
+				{process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
 			</body>
 		</html>
 	)

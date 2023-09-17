@@ -1,12 +1,10 @@
-import { AppShell, Button, Center, Loader, ScrollArea, Skeleton } from '@mantine/core'
+import { AppShell, ScrollArea, Skeleton } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { type SupabaseClient } from '@supabase/supabase-js'
 import { type ReactNode } from 'react'
 
-import useAuthUserData from '~/hooks/useAuthUserData'
-
 import Header from './Header'
-import UserButton from './UserButton'
+import UserSection from './UserSection'
 
 interface AppContainerProps {
 	children: ReactNode
@@ -17,17 +15,6 @@ interface AppContainerProps {
 export default function AppContainer({ children, supabase, baseUrl }: AppContainerProps) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure()
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
-
-	const handleDiscordLogin = async () => {
-		await supabase.auth.signInWithOAuth({
-			provider: 'discord',
-			options: {
-				redirectTo: `${baseUrl}auth/callback`
-			}
-		})
-	}
-
-	const { userMetadata, loading: userMetaDataLoading } = useAuthUserData({ supabase })
 
 	return (
 		<AppShell
@@ -56,17 +43,7 @@ export default function AppContainer({ children, supabase, baseUrl }: AppContain
 				</AppShell.Section>
 
 				<AppShell.Section h='70px'>
-					{userMetaDataLoading ? (
-						<Center>
-							<Loader type='bars' />
-						</Center>
-					) : userMetadata ? (
-						<UserButton image={userMetadata.avatarUrl} name={userMetadata.username} supabase={supabase} />
-					) : (
-						<Center>
-							<Button onClick={handleDiscordLogin}>Sign In</Button>
-						</Center>
-					)}
+					<UserSection supabase={supabase} baseUrl={baseUrl} />
 				</AppShell.Section>
 			</AppShell.Navbar>
 
