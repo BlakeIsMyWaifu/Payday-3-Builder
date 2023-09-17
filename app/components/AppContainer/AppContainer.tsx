@@ -22,7 +22,7 @@ export default function AppContainer({ children, supabase, baseUrl }: AppContain
 		await supabase.auth.signInWithOAuth({
 			provider: 'discord',
 			options: {
-				redirectTo: `${baseUrl}/auth/callback`
+				redirectTo: `${baseUrl}auth/callback`
 			}
 		})
 	}

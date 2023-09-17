@@ -8,7 +8,7 @@ import { type Session, type SupabaseClient } from '@supabase/supabase-js'
 
 import AppContainer from './components/AppContainer'
 import useSupabase, { supabaseLoader } from './hooks/useSupabase'
-import isProduction from './utils/isProduction'
+import getURL from './utils/getURL'
 import { theme } from './utils/mantineTheme'
 
 export const links: LinksFunction = () => [...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])]
@@ -20,7 +20,7 @@ interface RootOutlet {
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const { env, session, response } = await supabaseLoader(request)
-	const baseUrl = `http://${isProduction() ? process.env.VERCEL_BRANCH_URL : 'localhost:3000'}`
+	const baseUrl = getURL()
 	return json({ env, session, baseUrl }, { headers: response.headers })
 }
 
