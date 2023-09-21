@@ -5,8 +5,9 @@
     "build": "remix build",
     "dev": "remix dev",
     "typecheck": "tsc",
+    "eslint": "eslint app",
     "supabase-login": "supabase login",
-    "supabase-types": "supabase gen types typescript --project-id symnaeeatsntzepelvhp > types/database.types.ts"
+    "supabase-types": "supabase gen types typescript --project-id symnaeeatsntzepelvhp > app/supabase/databaseTypes.ts"
   },
   "dependencies": {
     "@mantine/core": "7.0.0-beta.5",

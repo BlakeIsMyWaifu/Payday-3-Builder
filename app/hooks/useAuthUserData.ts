@@ -1,8 +1,9 @@
-import { type SupabaseClient } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
 
+import { type SupabaseClientDatabase } from '~/supabase'
+
 interface UseAuthUserDataProps {
-	supabase: SupabaseClient
+	supabase: SupabaseClientDatabase
 }
 
 interface SupabaseUserMetadata {

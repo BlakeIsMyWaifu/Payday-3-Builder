@@ -1,13 +1,13 @@
 import { Avatar, Button, Center, Group, Loader, Menu, rem, Text, UnstyledButton } from '@mantine/core'
-import { type SupabaseClient } from '@supabase/supabase-js'
 import { IconChevronRight, IconLogout } from '@tabler/icons-react'
 
 import classes from '~/components/AppContainer/AppContainer.module.css'
 import useAuthUserData from '~/hooks/useAuthUserData'
 import useIsMobile from '~/hooks/useIsMobile'
+import { type SupabaseClientDatabase } from '~/supabase'
 
 interface UserSectionProps {
-	supabase: SupabaseClient
+	supabase: SupabaseClientDatabase
 	baseUrl: string
 }
 
@@ -45,7 +45,7 @@ function Loading() {
 interface UserButtonProps {
 	image: string
 	name: string
-	supabase: SupabaseClient
+	supabase: SupabaseClientDatabase
 }
 
 function UserButton({ image, name, supabase }: UserButtonProps) {

@@ -1,20 +1,23 @@
-import { AppShell, ScrollArea, Skeleton } from '@mantine/core'
+import { AppShell, ScrollArea } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { type SupabaseClient } from '@supabase/supabase-js'
 import { type ReactNode } from 'react'
 
+import { type SupabaseContext } from '~/supabase'
+
 import Header from './Header'
+import Navbar from './Navbar'
 import UserSection from './UserSection'
 
 interface AppContainerProps {
 	children: ReactNode
-	supabase: SupabaseClient
+	context: NonNullable<SupabaseContext>
 	baseUrl: string
 }
 
-export default function AppContainer({ children, supabase, baseUrl }: AppContainerProps) {
+export default function AppContainer({ children, context: { supabase, session }, baseUrl }: AppContainerProps) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure()
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
+	const isAuth = !!session
 
 	return (
 		<AppShell
@@ -35,11 +38,7 @@ export default function AppContainer({ children, supabase, baseUrl }: AppContain
 
 			<AppShell.Navbar>
 				<AppShell.Section grow p='md' component={ScrollArea}>
-					{Array(25)
-						.fill(0)
-						.map((_, index) => (
-							<Skeleton key={index} h={28} mt='sm' animate={false} />
-						))}
+					<Navbar supabase={supabase} isAuth={isAuth} />
 				</AppShell.Section>
 
 				<AppShell.Section h='70px'>

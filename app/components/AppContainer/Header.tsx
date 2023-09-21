@@ -8,6 +8,7 @@ import {
 	Title,
 	useMantineColorScheme
 } from '@mantine/core'
+import { Link } from '@remix-run/react'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useEffect, useState } from 'react'
 
@@ -34,7 +35,9 @@ export default function Header({
 			<Group>
 				<Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom='sm' size='sm' />
 				<Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom='sm' size='sm' />
-				<Title>Payday 3 Builder</Title>
+				<Link to='/'>
+					<Title>Payday 3 Builder</Title>
+				</Link>
 			</Group>
 			{!isMobile ? <SegmentedToggle /> : null}
 		</Group>
