@@ -1,0 +1,27 @@
+.tree {
+	width: min-content;
+}
+
+.category {
+	background-color: var(--mantine-color-dark-6);
+}
+
+.skillWrapper {
+	background-color: var(--mantine-color-dark-7);
+	border: 1px solid var(--mantine-color-dark-3);
+	padding: 4px 24px;
+
+	&:hover {
+		border-color: var(--mantine-color-dark-1);
+	}
+}
+
+.skill {
+	width: var(--size);
+	height: var(--size);
+	background-image: url('/skills.png');
+	background-repeat: no-repeat;
+	background-size: calc(var(--size) * 8) calc(var(--size) * 17);
+	background-position: calc(calc(var(--size) * calc(var(--c) - 1)) * -1)
+		calc(calc(var(--size) * calc(var(--r) - 1)) * -1);
+}

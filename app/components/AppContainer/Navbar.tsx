@@ -12,9 +12,9 @@ export default function Navbar({ supabase, isAuth }: NavbarProps) {
 	const navigate = useNavigate()
 
 	const newBuild = async () => {
-		const response = await supabase.from('builds').insert({}).select()
+		const response = await supabase.from('build').insert({}).select()
 		const id = response.data?.at(0)?.id
-		navigate(`/build/${id}/edit`)
+		if (!response.error) navigate(`/build/${id}/edit`)
 	}
 
 	return isAuth ? (

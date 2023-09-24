@@ -9,18 +9,21 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      builds: {
+      build: {
         Row: {
           created_at: string
           id: number
+          skills: string | null
         }
         Insert: {
           created_at?: string
           id?: number
+          skills?: string | null
         }
         Update: {
           created_at?: string
           id?: number
+          skills?: string | null
         }
         Relationships: []
       }

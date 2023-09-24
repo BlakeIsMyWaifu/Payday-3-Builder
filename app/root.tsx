@@ -1,22 +1,13 @@
 import '@mantine/core/styles.css'
 
-import { Center, ColorSchemeScript, Loader, MantineProvider } from '@mantine/core'
+import { Center, Loader, MantineProvider } from '@mantine/core'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { json, type LinksFunction, type LoaderFunctionArgs } from '@remix-run/node'
-import {
-	Links,
-	LiveReload,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-	useLoaderData,
-	useNavigation
-} from '@remix-run/react'
+import { Outlet, useLoaderData, useNavigation } from '@remix-run/react'
 import { type Session } from '@supabase/supabase-js'
-import { type ReactNode } from 'react'
 
 import AppContainer from './components/AppContainer'
+import Document from './components/Document'
 import { getServerClient, getSession, useSupabaseBrowserClient } from './supabase'
 import getUrlBase from './utils/getUrlBase'
 import { theme } from './utils/mantineTheme'
@@ -49,25 +40,5 @@ export default function App() {
 				</AppContainer>
 			</MantineProvider>
 		</Document>
-	)
-}
-
-export function Document({ children }: { children: ReactNode }) {
-	return (
-		<html lang='en'>
-			<head>
-				<meta charSet='utf-8' />
-				<meta name='viewport' content='width=device-width,initial-scale=1' />
-				<Meta />
-				<Links />
-				<ColorSchemeScript />
-			</head>
-			<body>
-				{children}
-				<ScrollRestoration />
-				<Scripts />
-				{process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
-			</body>
-		</html>
 	)
 }

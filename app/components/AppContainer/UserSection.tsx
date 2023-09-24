@@ -1,10 +1,11 @@
 import { Avatar, Button, Center, Group, Loader, Menu, rem, Text, UnstyledButton } from '@mantine/core'
 import { IconChevronRight, IconLogout } from '@tabler/icons-react'
 
-import classes from '~/components/AppContainer/AppContainer.module.css'
 import useAuthUserData from '~/hooks/useAuthUserData'
 import useIsMobile from '~/hooks/useIsMobile'
 import { type SupabaseClientDatabase } from '~/supabase'
+
+import classes from './AppContainer.module.css'
 
 interface UserSectionProps {
 	supabase: SupabaseClientDatabase
