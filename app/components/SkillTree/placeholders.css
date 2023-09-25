@@ -1,0 +1,54 @@
+.skill-state {
+	color: #888;
+	font-weight: bold;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.skill-val {
+	color: #e9ea8d;
+}
+
+.skill-bonus-edge {
+	color: #fbbe0d;
+}
+.skill-bonus-grit {
+	color: #dd473a;
+}
+.skill-bonus-rush {
+	color: #3aab58;
+}
+
+.skill-bonus-edge,
+.skill-bonus-grit,
+.skill-bonus-rush {
+	position: relative;
+	padding-left: 20px;
+	white-space: nowrap;
+}
+
+.skill-bonus-edge:before,
+.skill-bonus-grit:before,
+.skill-bonus-rush:before {
+	content: '';
+	position: absolute;
+	width: 17px;
+	height: 17px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.skill-bonus-edge:before {
+	background-image: url('/edge-icon.png');
+}
+.skill-bonus-grit:before {
+	background-image: url('/grit-icon.png');
+}
+.skill-bonus-rush:before {
+	background-image: url('/rush-icon.png');
+}

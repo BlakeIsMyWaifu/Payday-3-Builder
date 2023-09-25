@@ -12,7 +12,7 @@ module.exports = {
     'simple-import-sort/imports': 'warn',
     'simple-import-sort/exports': 'warn',
     '@typescript-eslint/no-unused-vars': [
-      1,
+      'warn',
       {
         'vars': 'all',
         'args': 'after-used',

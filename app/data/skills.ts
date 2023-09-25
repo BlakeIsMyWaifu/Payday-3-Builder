@@ -25,7 +25,7 @@ const skills: SkillCategory[] = [
 			tags: ['gain grit'],
 			stateTags: ['aced-gain grit'],
 			description:
-				'You revive teammates {InteractSpeed} faster.\r\n\r\nMedic Bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(one=charge,other=charges).',
+				'You revive teammates {InteractSpeed} faster.\r\n\r\nMedic Bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(charge,charges).',
 			descriptionAced:
 				'When you start reviving a teammate, you gain [sk-grit]GRIT[/].\r\n\r\nAs long as you have [sk-grit]GRIT[/], you take {DamageReduction} less damage when reviving a teammate.'
 		},
@@ -48,7 +48,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Medic Bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(one=charge,other=charges).',
+				'Medic Bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(charge,charges).',
 			descriptionAced: null
 		},
 		'Combat Medic': {
@@ -59,7 +59,7 @@ const skills: SkillCategory[] = [
 			tags: ['require grit'],
 			stateTags: ['basic-require grit'],
 			description:
-				'If you have [sk-grit]GRIT[/], successfully reviving your teammate will give both you and that teammate damage immunity for {ImmunityDuration} {ImmunityDuration}|plural(one=second,other=seconds).',
+				'If you have [sk-grit]GRIT[/], successfully reviving your teammate will give both you and that teammate damage immunity for {ImmunityDuration} {ImmunityDuration}|plural(second,seconds).',
 			descriptionAced: null
 		},
 		'Code Blue': {
@@ -92,7 +92,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Interacting with any Medic Bag will restore an additional {AdditionalHealth} of your max health and restore {RestoredDownedCount} "{RestoredDownedCount}|plural(one=down,other=downs)".',
+				'Interacting with any Medic Bag will restore an additional {AdditionalHealth} of your max health and restore {RestoredDownedCount} "{RestoredDownedCount}|plural(down,downs)".',
 			descriptionAced: null
 		}
 	},
@@ -105,7 +105,7 @@ const skills: SkillCategory[] = [
 			tags: ['gain edge'],
 			stateTags: ['aced-gain edge'],
 			description:
-				'Your reserve ammo capacity is increased by {IncreasedCapacity}.\r\n\r\nAmmo bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(one=charge,other=charges).',
+				'Your reserve ammo capacity is increased by {IncreasedCapacity}.\r\n\r\nAmmo bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(charge,charges).',
 			descriptionAced:
 				"Whenever you pick up ammo, if your current weapon's magazine is full, you gain [sk-edge]EDGE[/] if you don't have it."
 		},
@@ -128,7 +128,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Ammo bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(one=charge,other=charges).',
+				'Ammo bags you deploy have {AdditionalCharges} additional {AdditionalCharges}|plural(charge,charges).',
 			descriptionAced: null
 		},
 		'Plate Up': {
@@ -150,7 +150,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'After interacting with an ammo bag, you get {ExtraDamage} more damage for {Duration} {Duration}|plural(one=second,other=seconds). This bonus does not stack with itself.',
+				'After interacting with an ammo bag, you get {ExtraDamage} more damage for {Duration} {Duration}|plural(second,seconds). This bonus does not stack with itself.',
 			descriptionAced: null
 		},
 		'Mag Throw': {
@@ -161,7 +161,7 @@ const skills: SkillCategory[] = [
 			tags: ['require rush'],
 			stateTags: ['basic-require rush'],
 			description:
-				'As long as you have [sk-rush]RUSH[/], any ammo drops you pick up are also given to crew members within {AmmoRange} {AmmoRange}|plural(one=meter,other=meters).\r\n\r\nThis won\u2019t trigger the Mag Throw skill of other players.',
+				"As long as you have [sk-rush]RUSH[/], any ammo drops you pick up are also given to crew members within {AmmoRange} {AmmoRange}|plural(meter,meters).\r\n\r\nThis won't trigger the Mag Throw skill of other players.",
 			descriptionAced: null
 		},
 		'Top Up': {
@@ -315,7 +315,7 @@ const skills: SkillCategory[] = [
 			tags: ['gain grit', 'refresh grit'],
 			stateTags: ['aced-gain grit', 'aced-refresh grit'],
 			description:
-				'Increase the regeneration speed of your armor chunks by {IncreasedRegenerationSpeed}.\r\n\r\nYour armor bag has {AdditionalCharges} additional {AdditionalCharges}|plural(one=charge,other=charges).',
+				'Increase the regeneration speed of your armor chunks by {IncreasedRegenerationSpeed}.\r\n\r\nYour armor bag has {AdditionalCharges} additional {AdditionalCharges}|plural(charge,charges).',
 			descriptionAced: 'Whenever one of your armor chunks breaks, gain or refresh [sk-grit]GRIT[/].'
 		},
 		Hardy: {
@@ -337,7 +337,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Your armor bag has {AdditionalCharges} additional {AdditionalCharges}|plural(one=charge,other=charges).',
+				'Your armor bag has {AdditionalCharges} additional {AdditionalCharges}|plural(charge,charges).',
 			descriptionAced: null
 		},
 		'Armor Up': {
@@ -358,7 +358,7 @@ const skills: SkillCategory[] = [
 			tags: ['consume grit'],
 			stateTags: ['basic-consume grit'],
 			description:
-				"If damage would normally down you, you can instead consume available [sk-grit]GRIT[/] to stay on your feet and become immune to damage for {Duration} {Duration}|plural(one=second,other=seconds).\r\n\r\nAfter this effect has been applied, you can't gain [sk-grit]GRIT[/] until you heal using a Medic Bag or First Aid Kit, or until you're downed.",
+				"If damage would normally down you, you can instead consume available [sk-grit]GRIT[/] to stay on your feet and become immune to damage for {Duration} {Duration}|plural(second,seconds).\r\n\r\nAfter this effect has been applied, you can't gain [sk-grit]GRIT[/] until you heal using a Medic Bag or First Aid Kit, or until you're downed.",
 			descriptionAced: null
 		},
 		Disengage: {
@@ -369,7 +369,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				"Once per heist, you can free yourself from a Cloaker or Zapper, after which you can't be disabled by them again for {Duration} {Duration}|plural(one=second,other=seconds).",
+				"Once per heist, you can free yourself from a Cloaker or Zapper, after which you can't be disabled by them again for {Duration} {Duration}|plural(second,seconds).",
 			descriptionAced: null
 		}
 	},
@@ -448,9 +448,9 @@ const skills: SkillCategory[] = [
 			tags: ['gain rush', 'consume rush', 'gain edge', 'refresh edge'],
 			stateTags: ['basic-gain rush', 'aced-consume rush', 'aced-gain edge', 'aced-refresh edge'],
 			description:
-				'Whenever you sprint for at least {SprintDuration} {SprintDuration}|plural(one=second,other=seconds) gain [sk-rush]RUSH[/].',
+				'Whenever you sprint for at least {SprintDuration} {SprintDuration}|plural(second,seconds) gain [sk-rush]RUSH[/].',
 			descriptionAced:
-				'If you have [sk-rush]RUSH[/] available and slide, it\u2019s consumed, and you gain or refresh [sk-edge]EDGE[/].'
+				"If you have [sk-rush]RUSH[/] available and slide, it's consumed, and you gain or refresh [sk-edge]EDGE[/]."
 		},
 		Balanced: {
 			name: 'Balanced',
@@ -527,7 +527,7 @@ const skills: SkillCategory[] = [
 			tags: ['gain grit'],
 			stateTags: ['basic-gain grit'],
 			description:
-				'Whenever you hold a throwable for at least {HoldDuration} {HoldDuration}|plural(one=second,other=seconds) before throwing it, gain [sk-grit]GRIT[/].',
+				'Whenever you hold a throwable for at least {HoldDuration} {HoldDuration}|plural(second,seconds) before throwing it, gain [sk-grit]GRIT[/].',
 			descriptionAced: null
 		},
 		'Shell Shock': {
@@ -594,9 +594,9 @@ const skills: SkillCategory[] = [
 			tags: ['gain grit', 'require grit', 'gain edge'],
 			stateTags: ['basic-gain grit', 'aced-require grit', 'aced-gain edge'],
 			description:
-				'Whenever you kill {KillAmount} {KillAmount}|plural(one=enemy,other=enemies) within {WithinTime} {WithinTime}|plural(one=second,other=seconds) that are within {WithinRange} {WithinRange}|plural(one=meter,other=meters) of you, you gain [sk-grit]GRIT[/].',
+				'Whenever you kill {KillAmount} {KillAmount}|plural(enemy,enemies) within {WithinTime} {WithinTime}|plural(second,seconds) that are within {WithinRange} {WithinRange}|plural(meter,meters) of you, you gain [sk-grit]GRIT[/].',
 			descriptionAced:
-				'Whenever you kill {KillAmountAced} {KillAmountAced}|plural(one=enemy,other=enemies) within {WithinRange} {WithinRange}|plural(one=meter, other=meters) range, if you have [sk-grit]GRIT[/], gain [sk-edge]EDGE[/].'
+				'Whenever you kill {KillAmountAced} {KillAmountAced}|plural(enemy,enemies) within {WithinRange} {WithinRange}|plural(meter, meters) range, if you have [sk-grit]GRIT[/], gain [sk-edge]EDGE[/].'
 		},
 		'Quick Reload': {
 			name: 'Quick Reload',
@@ -617,7 +617,7 @@ const skills: SkillCategory[] = [
 			tags: ['require edge', 'require grit'],
 			stateTags: ['basic-require edge', 'basic-require grit'],
 			description:
-				'As long as you have both [sk-edge]EDGE[/] and [sk-grit]GRIT[/], you deal {ExtraDamage} extra damage to targets within {WithinRange} {WithinRange}|plural(one=meter,other=meters) of you.',
+				'As long as you have both [sk-edge]EDGE[/] and [sk-grit]GRIT[/], you deal {ExtraDamage} extra damage to targets within {WithinRange} {WithinRange}|plural(meter,meters) of you.',
 			descriptionAced: null
 		},
 		Solid: {
@@ -650,7 +650,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Killing an enemy within {WithinRange} {WithinRange}|plural(one=meter,other=meters) of you has a chance to stagger all non-Special enemies within {StaggerRange} {StaggerRange}|plural(one=meter,other=meters) of you.',
+				'Killing an enemy within {WithinRange} {WithinRange}|plural(meter,meters) of you has a chance to stagger all non-Special enemies within {StaggerRange} {StaggerRange}|plural(meter,meters) of you.',
 			descriptionAced: null
 		}
 	},
@@ -694,7 +694,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Trading hostages for First Aid now yields {ExtraResource} additional First Aid {ExtraResource}|plural(one=pack,other=packs).',
+				'Trading hostages for First Aid now yields {ExtraResource} additional First Aid {ExtraResource}|plural(pack,packs).',
 			descriptionAced: null
 		},
 		Menacing: {
@@ -705,7 +705,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				"You can shout at guards, SWAT or Heavy SWAT within {SurrenderDistance} {SurrenderDistance}|plural(one=meter,other=meters) of you to force them to surrender. As long as you're aiming at them, they will go down on their knees and drop their weapon. Any damage dealt to them or taking your aim off of them interrupts this process.\r\n\r\nOnce fully surrendered, the SWAT obeys all the rules of a civilian, including any penalties for killing them. You can't have more than one SWAT as a hostage at any time.",
+				"You can shout at guards, SWAT or Heavy SWAT within {SurrenderDistance} {SurrenderDistance}|plural(meter,meters) of you to force them to surrender. As long as you're aiming at them, they will go down on their knees and drop their weapon. Any damage dealt to them or taking your aim off of them interrupts this process.\r\n\r\nOnce fully surrendered, the SWAT obeys all the rules of a civilian, including any penalties for killing them. You can't have more than one SWAT as a hostage at any time.",
 			descriptionAced: null
 		},
 		'Stockholm Syndrome': {
@@ -727,7 +727,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				"Every hostage you trade between assault waves reduces the next player's time in custody by {TimeSaved} {TimeSaved}|plural(one=second,other=seconds); the minimum time spent in custody is capped at 10 seconds. This time reduction resets after any player has been taken into custody.",
+				"Every hostage you trade between assault waves reduces the next player's time in custody by {TimeSaved} {TimeSaved}|plural(second,seconds); the minimum time spent in custody is capped at 10 seconds. This time reduction resets after any player has been taken into custody.",
 			descriptionAced: null
 		}
 	},
@@ -872,9 +872,9 @@ const skills: SkillCategory[] = [
 			tags: ['gain rush'],
 			stateTags: ['basic-gain rush'],
 			description:
-				'As long as you are masked off, if you are within {Range} {Range}|plural(one=meter,other=meters) of a civilian or employee, gain [sk-rush]RUSH[/].',
+				'As long as you are masked off, if you are within {Range} {Range}|plural(meter,meters) of a civilian or employee, gain [sk-rush]RUSH[/].',
 			descriptionAced:
-				'When you mask on, any civilians and employees within {RangeAced} {RangeAced}|plural(one=meter,other=meters) that can see you will become intimidated.'
+				'When you mask on, any civilians and employees within {RangeAced} {RangeAced}|plural(meter,meters) that can see you will become intimidated.'
 		},
 		'Walk The Walk': {
 			name: 'Walk The Walk',
@@ -961,7 +961,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				"You can spend a Runtime to make the hacked camera automatically mark any guards or law enforcement within its range.\r\n\r\nTargets stay marked for {MarkedDuration} {MarkedDuration}|plural(one=second,other=seconds) after leaving the camera's view and do not count towards your maximum number of marked targets",
+				"You can spend a Runtime to make the hacked camera automatically mark any guards or law enforcement within its range.\r\n\r\nTargets stay marked for {MarkedDuration} {MarkedDuration}|plural(second,seconds) after leaving the camera's view and do not count towards your maximum number of marked targets",
 			descriptionAced: null
 		},
 		'Glitch Protocol': {
@@ -972,7 +972,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'You can hack a guard\u2019s radio to cause a disturbance, stopping and distracting them, pausing any action they are doing. You must have a line of sight to the guard to hack them.\r\n\r\nThe guard is distracted for {DistractTime} {DistractTime}|plural(one=second,other=seconds), after which they will go back to their previous action. If the guard was escorting a player, the guard will go back to patrolling. If the guard was about to detain a player, the guard will go into Search mode instead.\r\n\r\nUsing this ability has a cooldown of {Cooldown} {Cooldown}|plural(one=second,other=seconds).',
+				"You can hack a guard's radio to cause a disturbance, stopping and distracting them, pausing any action they are doing. You must have a line of sight to the guard to hack them.\r\n\r\nThe guard is distracted for {DistractTime} {DistractTime}|plural(second,seconds), after which they will go back to their previous action. If the guard was escorting a player, the guard will go back to patrolling. If the guard was about to detain a player, the guard will go into Search mode instead.\r\n\r\nUsing this ability has a cooldown of {Cooldown} {Cooldown}|plural(second,seconds).",
 			descriptionAced: null
 		},
 		'Signal Catch': {
@@ -1027,7 +1027,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Enemies affected by your flashbangs suffer a {DecreasedDamageAmount} damage debuff for the duration of the stun and for {DecreasedDamageDuration} {DecreasedDamageDuration}|plural(one=second,other=seconds) seconds after it wears off.\r\n\r\nEnemies affected by your smoke grenade suffer a {DecreasedDamageAmount} damage debuff while in the smoke, and it has a duration of {DecreasedDamageDuration} {DecreasedDamageDuration}|plural(one=second,other=seconds) seconds after they have escaped the smoke.',
+				'Enemies affected by your flashbangs suffer a {DecreasedDamageAmount} damage debuff for the duration of the stun and for {DecreasedDamageDuration} {DecreasedDamageDuration}|plural(second,seconds) seconds after it wears off.\r\n\r\nEnemies affected by your smoke grenade suffer a {DecreasedDamageAmount} damage debuff while in the smoke, and it has a duration of {DecreasedDamageDuration} {DecreasedDamageDuration}|plural(second,seconds) seconds after they have escaped the smoke.',
 			descriptionAced: null
 		},
 		Expose: {
@@ -1061,9 +1061,9 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'You can mark {AdditionalMark} additional {AdditionalMark}|plural(one=target,other=targets).\r\n\r\nYour marks last {MarkDuration} longer.',
+				'You can mark {AdditionalMark} additional {AdditionalMark}|plural(target,targets).\r\n\r\nYour marks last {MarkDuration} longer.',
 			descriptionAced:
-				'You can mark {AdditionalMark} additional {AdditionalMark}|plural(one=target,other=targets).\r\n\r\nYour marks last {MarkDuration} longer.'
+				'You can mark {AdditionalMark} additional {AdditionalMark}|plural(target,targets).\r\n\r\nYour marks last {MarkDuration} longer.'
 		},
 		'Combat Marking': {
 			name: 'Combat Marking',
@@ -1106,7 +1106,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Whenever you are downed or disabled by an enemy, that enemy and up to 5 enemies within {Range} {Range}|plural(one=meter,other=meters) of you are marked.',
+				'Whenever you are downed or disabled by an enemy, that enemy and up to 5 enemies within {Range} {Range}|plural(meter,meters) of you are marked.',
 			descriptionAced: null
 		}
 	},
@@ -1150,7 +1150,7 @@ const skills: SkillCategory[] = [
 			tags: ['consume grit'],
 			stateTags: ['basic-consume grit'],
 			description:
-				'If you have [sk-grit]GRIT[/] and shove a SWAT you held as a human shield, [sk-grit]GRIT[/] is consumed, and the SWAT\u2019s smoke grenade is triggered when they land. Only one grenade per SWAT can be triggered.\r\n\r\nYou move {IncreasedSpeed} faster while holding a human shield.',
+				"If you have [sk-grit]GRIT[/] and shove a SWAT you held as a human shield, [sk-grit]GRIT[/] is consumed, and the SWAT's smoke grenade is triggered when they land. Only one grenade per SWAT can be triggered.\r\n\r\nYou move {IncreasedSpeed} faster while holding a human shield.",
 			descriptionAced: null
 		},
 		'Savage Takedown': {
@@ -1161,7 +1161,7 @@ const skills: SkillCategory[] = [
 			tags: [],
 			stateTags: [],
 			description:
-				'Whenever you perform a takedown, any civilian within {Range} {Range}|plural(one=meter,other=meters) will immediately become intimidated.',
+				'Whenever you perform a takedown, any civilian within {Range} {Range}|plural(meter,meters) will immediately become intimidated.',
 			descriptionAced: null
 		},
 		'Pressure Points': {
@@ -1187,5 +1187,54 @@ const skills: SkillCategory[] = [
 		}
 	}
 ]
+
+function replaceAll(skill: Skill) {
+	Object.entries(skill.values).forEach(([key, value]) => {
+		skill.description = replacePlural(skill.description, key, value)
+		skill.description = replaceValues(skill.description, key, value)
+		if (skill.descriptionAced) {
+			skill.descriptionAced = replacePlural(skill.descriptionAced, key, value)
+			skill.descriptionAced = replaceValues(skill.descriptionAced, key, value)
+		}
+	})
+	skill.description = replacePlaceholders(skill.description)
+	if (skill.descriptionAced) {
+		skill.descriptionAced = replacePlaceholders(skill.descriptionAced)
+	}
+}
+
+function replacePlural(text: string, key: string, value: string | number) {
+	if (!text.includes(`{${key}}|plural`)) return text
+	const [, words] = text.split(`{${key}}|plural(`)
+	const [single, plural] = words.split(')')[0].split(',')
+	const replace = `{${key}}|plural(${single},${plural})`
+	return text.replaceAll(replace, parseFloat(value.toString()) <= 1 ? single : plural)
+}
+
+function replaceValues(text: string, key: string, value: string | number) {
+	return text.replaceAll(`{${key}}`, `[sk-val]${value}[/]`)
+}
+
+const placeholders = [
+	['[sk-state]', '<span class="skill-state">'],
+	['[sk-val]', '<span class="skill-val">'],
+	['[sk-edge]', '<span class="skill-bonus-edge">'],
+	['[sk-grit]', '<span class="skill-bonus-grit">'],
+	['[sk-rush]', '<span class="skill-bonus-rush">'],
+	['[/]', '</span>']
+]
+
+function replacePlaceholders(text: string) {
+	placeholders.forEach(([a, b]) => {
+		text = text.replaceAll(a, b)
+	})
+	return text
+}
+
+skills.forEach(category => {
+	Object.values(category).forEach(skill => {
+		replaceAll(skill)
+	})
+})
 
 export default skills
