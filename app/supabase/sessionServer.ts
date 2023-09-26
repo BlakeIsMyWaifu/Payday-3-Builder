@@ -1,6 +1,7 @@
 import { redirect } from '@remix-run/node'
 
 import { getServerClient } from './clientServer'
+import { type Database } from './databaseTypes'
 
 /**
  * This is a helper function to get the session from the request.
@@ -56,6 +57,32 @@ export async function requireSession(request: Request, { onFailRedirectTo = '/' 
 		throw redirect(onFailRedirectTo, {
 			headers
 		})
+
+	return { session, supabase, headers }
+}
+
+interface RequireAuthorOptions {
+	onFailRedirectTo?: string
+	table?: keyof Database['public']['Tables']
+	column?: string
+}
+
+export async function requireAuthor(
+	request: Request,
+	id: number,
+	{ onFailRedirectTo, table = 'build', column = 'author' }: RequireAuthorOptions = {}
+) {
+	const { session, supabase, headers } = await requireSession(request, {
+		onFailRedirectTo: onFailRedirectTo ?? `/build/${id}`
+	})
+
+	const { data, error } = await supabase.from(table).select().eq('id', id)
+
+	if (session.user.id !== (data?.[0] as any)[column] || error) {
+		throw redirect(onFailRedirectTo ?? `/build/${id}`, {
+			headers
+		})
+	}
 
 	return { session, supabase, headers }
 }

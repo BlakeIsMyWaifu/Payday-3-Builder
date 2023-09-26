@@ -1,11 +1,17 @@
-import { json, type LoaderFunctionArgs } from '@remix-run/node'
+import { json, type LoaderFunctionArgs, redirect } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 
-import SkillTree from '~/components/SkillTree/SkillTree'
-import { requireSession } from '~/supabase'
+import SkillTree from '~/components/SkillTree'
+import { requireAuthor } from '~/supabase'
+import isNumeric from '~/utils/isNumeric'
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
-	const { session, headers } = await requireSession(request, { onFailRedirectTo: `/build/${params.id}` })
+	const id = isNumeric(params.id!) ? +params.id! : null
+	if (!id) {
+		throw redirect('/', { headers: request.headers })
+	}
+
+	const { session, headers } = await requireAuthor(request, id)
 
 	return json({ user: session.user }, { headers })
 }

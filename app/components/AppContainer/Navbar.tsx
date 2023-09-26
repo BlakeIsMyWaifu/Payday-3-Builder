@@ -1,23 +1,25 @@
 import { Button, Tooltip } from '@mantine/core'
 import { useNavigate } from '@remix-run/react'
+import { type Session } from '@supabase/supabase-js'
 
 import { type SupabaseClientDatabase } from '~/supabase'
 
 interface NavbarProps {
 	supabase: SupabaseClientDatabase
-	isAuth: boolean
+	session: Session | null
 }
 
-export default function Navbar({ supabase, isAuth }: NavbarProps) {
+export default function Navbar({ supabase, session }: NavbarProps) {
 	const navigate = useNavigate()
 
 	const newBuild = async () => {
-		const response = await supabase.from('build').insert({}).select()
+		if (!session) return
+		const response = await supabase.from('build').insert({ author: session.user.id }).select()
 		const id = response.data?.at(0)?.id
 		if (!response.error) navigate(`/build/${id}/edit`)
 	}
 
-	return isAuth ? (
+	return session ? (
 		<Button onClick={newBuild}>New Build</Button>
 	) : (
 		<Tooltip label='You must be signed in to create a new build'>

@@ -11,16 +11,19 @@ export interface Database {
     Tables: {
       build: {
         Row: {
+          author: string
           created_at: string
           id: number
           skills: string | null
         }
         Insert: {
+          author: string
           created_at?: string
           id?: number
           skills?: string | null
         }
         Update: {
+          author?: string
           created_at?: string
           id?: number
           skills?: string | null

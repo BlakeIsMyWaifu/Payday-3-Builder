@@ -17,7 +17,6 @@ interface AppContainerProps {
 export default function AppContainer({ children, context: { supabase, session }, baseUrl }: AppContainerProps) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure()
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
-	const isAuth = !!session
 
 	return (
 		<AppShell
@@ -38,7 +37,7 @@ export default function AppContainer({ children, context: { supabase, session },
 
 			<AppShell.Navbar>
 				<AppShell.Section grow p='md' component={ScrollArea}>
-					<Navbar supabase={supabase} isAuth={isAuth} />
+					<Navbar supabase={supabase} session={session} />
 				</AppShell.Section>
 
 				<AppShell.Section h='70px'>
